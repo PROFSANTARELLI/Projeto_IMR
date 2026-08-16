@@ -1,1 +1,25 @@
-
+{
+  "name": "ROS 2 Humble - Intelligent Mobile Robots",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "redhat.vscode-xml",
+        "smilerobotics.urdf-viewer"
+      ]
+    }
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Interface Grafica Simulação (Gazebo/RViz)",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc && echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc",
+  "remoteUser": "ros"
+}
